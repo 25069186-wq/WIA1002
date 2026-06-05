@@ -27,6 +27,7 @@ public class SmartLibrary implements LibraryADT {
         Book b = catalogue.search(isbn);
         if (b != null) {
             history.push(b);
+            catalogue.delete(isbn); // Added the missing deletion logic
             System.out.println(">>> Successfully borrowed: " + b.title);
         } else {
             System.out.println(">>> Borrow failed: Book not found in the catalogue.");
